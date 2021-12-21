@@ -107,6 +107,50 @@ make menuconfig
 ```sh
 make -j8 download V=s
 ```
-10.未完待续。。。。。。
+10.该（wsl）环境下开始编译
+>第一次一定要按照官方的说法，不能用多线程跑，否则大概率会失败，我也同样失败了
+>
+>默认config+单线程绝对能编译成功，lean说的不错，我确实成功了
+>
+>compile期间一定要准备好代理，因为每次生成ipk文件都会先下载源文件，但是到了后半段编译貌似就不需要代理了
+```sh
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make -j1 V=s 
+```
+11.搜索编译后的文件
 
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
+Like This:
+C:\Users\[windows username]\AppData\Local\Packages\......UbuntuonWindows......\LocalState\rootfs\home\[ubuntu username]
+
+>lede
+>> bin
+>>> targets
+>>>>>x86
+>>>>>>64
+>>>>>>>packages
+>>>>>>>>- - -
+>>>>>>>>- - -
+>>>>>>>>* * *
+>>>>>>>
+>>>>>>>config.buildinfo
+>>>>>>>
+>>>>>>>feeds.buildinfo
+>>>>>>>
+>>>>>>>openwrt-x86-64-generic.manifest
+>>>>>>>
+>>>>>>>openwrt-x86-64-generic-kernel.bin
+>>>>>>>
+>>>>>>>***openwrt-x86-64-generic-squashfs-combined-efi.img***This is what i need
+>>>>>>>
+>>>>>>>openwrt-x86-64-generic-squashfs-combined-efi.vmdk
+>>>>>>>
+>>>>>>>openwrt-x86-64-generic-squashfs-rootfs.img
+>>>>>>>
+>>>>>>>sha256sums
+>>>>>>>
+>>>>>>>version.buildinfo
+>>>>>>>
+>>>
+>>> packages 
+>>>> x86_64
+>>>>>
+12.to be continued.
