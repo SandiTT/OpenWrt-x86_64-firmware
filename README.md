@@ -119,6 +119,8 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make -j1 V=s
 11.搜索编译后的文件
 
 Like This:
+
+
 C:\Users\[windows username]\AppData\Local\Packages\......UbuntuonWindows......\LocalState\rootfs\home\[ubuntu username]
 
 >lede
