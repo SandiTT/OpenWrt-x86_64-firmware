@@ -79,9 +79,9 @@ sudo apt-get update
 sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
 ```
 6.防止github被墙无法克隆，全局配置代理
-> 具体介绍搜索wsl，大意就是子系统和window共享网络接口，所以本地主机是可以相互访问的.
-> 测试下来虚拟机会继承主机的host文件列表，所以如果github host可以用，在windows配好就行了，不过速度是在太慢了.
-> 测试中，仅仅配置https_proxy无法达到代理的效果，哪怕是配置environment文件也不行，ubuntu还是会用自己的http接口跑出去.
+> 具体介绍搜索wsl，大意就是子系统和window共享网络接口，所以本地主机是可以相互访问的
+> 测试下来虚拟机会继承主机的host文件列表，所以如果github host可以用，在windows配好就行了，不过速度是在太慢了。
+> 测试中，仅仅配置https_proxy无法达到代理的效果，哪怕是配置environment文件也不行，ubuntu还是会用自己的http接口跑出去
 ```sh
 export ALL_PROXY="http://172.19.80.1:7890"
 ```
