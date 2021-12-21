@@ -156,3 +156,5 @@ C:\Users\[windows username]\AppData\Local\Packages\......UbuntuonWindows......\L
 >>>> x86_64
 >>>>>
 12.to be continued.
+- - -
+>原版官方不添加任何config参数，lean说的不错-保证成功，这对于虚拟机是在太方便了。初次编译加参数只会增加难度，建议什么都不选，另外我的云编译也成功了，也是什么都不加
