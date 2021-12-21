@@ -21,7 +21,9 @@ It's the guide of config for openwrt.
 | 查看版本 | cat /etc/issue |
 | 更新软件 |sudo apt-get update|
 | 重启dns |sudo apt-get install nscd   《先运行，报错再安装》  sudo /etc/init.d/nscd restart |
-| 修改host文件 | sudo gedit /etc/hosts |
+| 修改host文件 | sudo nano /etc/hosts |
+| 修改environment变量（三个协议都需要配置） | sudo nano /etc/environment |
+| 查看本地配置的proxy，用于检验是否配置成功 | env\|grep -i proxy |
 
 ## 准备本地编译
 
