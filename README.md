@@ -100,6 +100,7 @@ sudo /etc/init.d/ssh start
 make menuconfig
 ```
 > 一步步执行下去
+> 
 > 第三步会要求配置config文件，选择想要的固件就好了，其它默认，云编译就加了两个包都成功了
 
 9.接着执行
