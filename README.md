@@ -139,7 +139,7 @@ C:\Users\[windows username]\AppData\Local\Packages\......UbuntuonWindows......\L
 >>>>>>>
 >>>>>>>openwrt-x86-64-generic-kernel.bin
 >>>>>>>
->>>>>>>***openwrt-x86-64-generic-squashfs-combined-efi.img***This is what i need
+>>>>>>>***openwrt-x86-64-generic-squashfs-combined-efi.img*** ___This is what i need___
 >>>>>>>
 >>>>>>>openwrt-x86-64-generic-squashfs-combined-efi.vmdk
 >>>>>>>
