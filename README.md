@@ -239,12 +239,23 @@ export GOPROXY=https://goproxy.io
 ```
 8.再次编译
 
+## 重新再来编译
 ```sh
-
+make clean
 ```
 
 ```sh
+export ALL_PROXY="http://127.0.0.1:10809"
 
+source /etc/environment
+export GO111MODULE=on
+export GOPROXY=https://goproxy.cn,direct
+
+git pull
+./scripts/feeds update -a && ./scripts/feeds install -a
+make defconfig
+make -j8 download
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make -j$(($(nproc) + 1)) V=s
 ```
 
 ```sh
