@@ -160,3 +160,99 @@ C:\Users\[windows username]\AppData\Local\Packages\......UbuntuonWindows......\L
 12.to be continued.
 - - -
 >原版官方不添加任何config参数，lean说的不错-保证成功，这对于虚拟机是在太方便了。初次编译加参数只会增加难度，建议什么都不选，另外我的云编译也成功了，也是什么都不加
+
+## 修改openwrt默认管理ip
+
+- 
+
+
+
+
+1.打开windows文件夹
+>C:\Users\<windows username>\AppData\Local\Packages\......UbuntuonWindows......\LocalState\rootfs\home\<ubuntu username>\lede\package\base-> >files\files\bin
+
+2.打开编辑其中的config_generate文件
+
+3.找到类似这段代码
+```sh
+case "$protocol" in
+		static)
+			local ipad
+			case "$1" in
+				lan) ipad=${ipaddr:-"192.168.1.200"} ;;
+				*) ipad=${ipaddr:-"192.168.$((addr_offset++)).1"} ;;
+			esac
+
+			netm=${netmask:-"255.255.255.0"}
+
+			uci -q batch <<-EOF
+				set network.$1.proto='static'
+				set network.$1.ipaddr='$ipad'
+				set network.$1.netmask='$netm'
+			EOF
+			[ -e /proc/sys/net/ipv6 ] && uci set network.$1.ip6assign='60'
+		;;
+```
+4.修改ipad-ip address地址为192.168.1.200等等
+
+5.修改网关，这次没用到
+```sh
+set network.$1.gateway='192.168.1.1' 
+set network.$1.dns='127.0.0.1 223.5.5.5 8.8.8.8'
+```
+6.保存
+
+## 二次编译
+
+Still includes bunch of problems:
+
+1.更新lede
+```sh
+git pull
+```
+2.取消server certificate verification
+```sh
+git config --global http.sslverify false 
+git config --global https.sslverify false
+```
+3.更新所有脚本
+```sh
+./scripts/feeds update -a && ./scripts/feeds install -a
+```
+4.读取/解析config文件
+```sh
+make defconfig
+```
+5.
+```sh
+make -j8 download
+```
+6.开始编译（wsl环境）,并且是多线程运行
+```sh
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make -j$(($(nproc) + 1)) V=s
+```
+7.
+```sh
+
+```
+
+
+```sh
+
+```
+
+```sh
+
+```
+
+```sh
+
+```
+
+```sh
+
+```
+
+```sh
+
+```
