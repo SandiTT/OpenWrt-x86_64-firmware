@@ -240,8 +240,9 @@ export GOPROXY=https://goproxy.io
 8.再次编译
 
 ## 重新再来编译
+>make distclean （ make clean仅仅是清除之前编译的可执行文件及配置文件，而make distclean要清除所有生成的文件
 ```sh
-make clean
+make clean | make distclean 
 ```
 
 ```sh
@@ -251,8 +252,7 @@ source /etc/environment
 export GO111MODULE=on
 export GOPROXY=https://goproxy.cn,direct
 
-git pull
-./scripts/feeds update -a && ./scripts/feeds install -a
+git pull && ./scripts/feeds update -a && ./scripts/feeds install -a
 make defconfig
 make -j8 download
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make -j$(($(nproc) + 1)) V=s
