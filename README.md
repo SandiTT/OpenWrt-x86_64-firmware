@@ -231,11 +231,13 @@ make -j8 download
 ```sh
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin make -j$(($(nproc) + 1)) V=s
 ```
-7.
+7.失败，报错make[1]: *** [package/Makefile:110: /home/gu/lede/staging_dir/target-x86_64_musl/stamp/.package_compile] Error 2
+添加命令，参考https://github.com/coolsnowwolf/lede/issues/4815
 ```sh
-
+export GO111MODULE=on
+export GOPROXY=https://goproxy.io
 ```
-
+8.再次编译
 
 ```sh
 
