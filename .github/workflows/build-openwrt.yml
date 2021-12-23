@@ -16,7 +16,7 @@ on:
     inputs:
       ssh:
         description: 'SSH connection to Actions'
-        required: false
+        required: true
         default: 'true'
 
 env:
@@ -30,7 +30,7 @@ env:
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
   UPLOAD_WETRANSFER: true
-  UPLOAD_RELEASE: true
+  UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
 
 jobs:
@@ -180,11 +180,12 @@ jobs:
         retain_days: 1
         keep_minimum_runs: 3
 
-    - name: Remove old Releases
-      uses: dev-drprasad/delete-older-releases@v0.1.0
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-      with:
-        keep_latest: 3
-        delete_tags: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#    - name: Remove old Releases
+#      uses: dev-drprasad/delete-older-releases@v0.1.0
+#      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+#      with:
+#        keep_latest: 3
+#        delete_tags: true
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#
